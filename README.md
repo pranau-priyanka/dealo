@@ -56,6 +56,10 @@ Feature work should grow under `src/features/<feature>` when it gains domain sta
 - The selector is present globally and at Profile → Settings → Language.
 - User-profile synchronisation is deferred until authenticated profiles exist; the device cookie is the Milestone 1 persistence layer.
 
+## Guest access
+
+Deal discovery is public. Visitors can browse published, live deals without registering or signing in. Authentication is only required for personal actions: saving a deal and syncing profile settings across devices.
+
 ## Authentication boundary
 
 Supabase authentication uses HTTP-only cookies on the server and browser, with an email/password sign-up and sign-in flow. `getCurrentUser` validates the session server-side; saved deals require an authenticated user. Session refresh is performed in `proxy.ts`, while `/auth/callback` exchanges confirmation codes using the PKCE flow.

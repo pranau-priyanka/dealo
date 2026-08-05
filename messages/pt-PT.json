@@ -14,7 +14,7 @@
     "eyebrow": "Boas descobertas, aqui perto",
     "title": "Ofertas locais pelas quais vale a pena sair de casa.",
     "subtitle": "Descubra ofertas por tempo limitado de espaços independentes e marcas de confiança perto de si — sem pesquisas intermináveis.",
-    "primaryAction": "Começar a descobrir",
+    "primaryAction": "Explorar ofertas",
     "secondaryAction": "Já tenho uma conta",
     "previewLabel": "Perto de si, hoje",
     "previewTitle": "Almoço no The Green Table",
@@ -76,6 +76,17 @@
     "empty": {
       "title": "Ainda não guardou nada",
       "description": "Quando guardar uma oferta, ela aparecerá aqui."
+    }
+  },
+  "deals": {
+    "eyebrow": "Navegue livremente",
+    "title": "Ofertas perto de si",
+    "description": "Qualquer pessoa pode explorar as ofertas atuais. Crie uma conta apenas quando quiser guardar uma oferta.",
+    "discount": "{value}% de desconto",
+    "savePrompt": "Crie uma conta para guardar esta oferta",
+    "empty": {
+      "title": "Ainda não existem ofertas ativas",
+      "description": "Volte em breve — adicionamos novas ofertas locais regularmente."
     }
   },
   "settings": {

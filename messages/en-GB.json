@@ -14,7 +14,7 @@
     "eyebrow": "Good finds, close by",
     "title": "Local deals worth going out for.",
     "subtitle": "Discover timely offers from independent places and trusted brands around you — without the endless scrolling.",
-    "primaryAction": "Start discovering",
+    "primaryAction": "Explore deals",
     "secondaryAction": "I already have an account",
     "previewLabel": "Near you today",
     "previewTitle": "Lunch at The Green Table",
@@ -70,6 +70,17 @@
     "empty": {
       "title": "Nothing saved yet",
       "description": "When you save a deal, it will appear here."
+    }
+  },
+  "deals": {
+    "eyebrow": "Browse freely",
+    "title": "Deals near you",
+    "description": "Anyone can explore current offers. Create an account only when you want to save a deal.",
+    "discount": "{value}% off",
+    "savePrompt": "Sign up to save this deal",
+    "empty": {
+      "title": "No live deals yet",
+      "description": "Check back soon — new local offers are added regularly."
     }
   },
   "settings": {

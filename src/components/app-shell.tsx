@@ -29,7 +29,10 @@ export async function AppShell({ children }: { children: ReactNode }) {
             aria-label={t("primary")}
             className="hidden items-center gap-6 md:flex"
           >
-            <Link className="hover:text-brand text-sm font-semibold" href="/">
+            <Link
+              className="hover:text-brand text-sm font-semibold"
+              href="/deals"
+            >
               {t("discover")}
             </Link>
             <Link
@@ -72,7 +75,7 @@ export async function AppShell({ children }: { children: ReactNode }) {
       >
         <Link
           className="min-h-11 rounded-lg px-4 py-3 text-sm font-semibold"
-          href="/"
+          href="/deals"
         >
           {t("discover")}
         </Link>

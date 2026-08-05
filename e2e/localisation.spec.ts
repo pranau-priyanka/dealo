@@ -20,3 +20,11 @@ test("detects Portuguese and persists an explicit switch", async ({
   await page.goto("/");
   await expect(page).toHaveURL(/\/en-GB$/);
 });
+
+test("guests can browse deals without registering", async ({ page }) => {
+  await page.goto("/en-GB/deals");
+  await expect(page).toHaveURL(/\/en-GB\/deals$/);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Deals near you",
+  );
+});
