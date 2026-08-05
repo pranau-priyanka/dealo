@@ -47,6 +47,12 @@ export async function AppShell({ children }: { children: ReactNode }) {
             >
               {t("settings")}
             </Link>
+            <Link
+              className="hover:text-brand text-sm font-semibold"
+              href="/merchant"
+            >
+              {t("merchant")}
+            </Link>
           </nav>
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
@@ -90,6 +96,12 @@ export async function AppShell({ children }: { children: ReactNode }) {
           href="/settings/language"
         >
           {t("settings")}
+        </Link>
+        <Link
+          className="min-h-11 rounded-lg px-4 py-3 text-sm font-semibold"
+          href="/merchant"
+        >
+          {t("merchant")}
         </Link>
       </nav>
     </div>

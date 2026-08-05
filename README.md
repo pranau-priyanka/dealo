@@ -68,7 +68,17 @@ Deal discovery is public. Visitors can search and view published, live deals wit
 - Guest-safe save prompts that preserve the intended return route through authentication
 - Locale-aware expiry dates and fully translated `en-GB` and `pt-PT` discovery copy
 
-The next milestone is merchant operations: onboarding, venue creation, draft/publish controls and a controlled way to populate the public catalogue. There are currently no sample deals inserted into the production database.
+There are currently no sample deals inserted into the production database.
+
+## Milestone 4: merchant workspace
+
+- Protected merchant workspace at `/{locale}/merchant`; signed-out visitors are returned to sign-in safely.
+- Merchant onboarding creates one managed business workspace for the account.
+- Merchant owners can add venues, create draft offers and move offers through the supported lifecycle: draft → published → paused/expired, and paused → published/expired.
+- The existing Row Level Security policies remain the authorisation boundary: a merchant can only read or mutate its own venues and deals.
+- `202608050003_add_deal_status_audit.sql` adds a merchant-visible audit table and trigger for every offer status change.
+
+Apply the new migration before using status controls in a shared production environment. Merchant-created offers work without sample catalogue data; a published offer automatically becomes visible to guests only during its configured live window.
 
 ## Authentication boundary
 
@@ -82,11 +92,11 @@ Supabase authentication uses HTTP-only cookies on the server and browser, with a
 4. In **Authentication → URL Configuration**, add your local and production URLs, including `http://localhost:3000/auth/callback` and `https://<production-domain>/auth/callback`.
 5. Keep email confirmation enabled in production. No service-role key is used or exposed by this app.
 
-The migration creates profiles, merchants, venues, deals and saved deals. Every public table has Row Level Security enabled. Published, current deals are public; profiles and saved deals are private to the authenticated owner; merchant content can be managed only by that merchant's owner.
+The migrations create profiles, merchants, venues, deals, saved deals and deal-status audit events. Every public table has Row Level Security enabled. Published, current deals are public; profiles and saved deals are private to the authenticated owner; merchant content can be managed only by that merchant's owner.
 
 ## Product and engineering assumptions
 
-1. Dealo is consumer-first; the initial shell prioritises discovery, saved deals and profile settings. Merchant tooling will be a separate protected area.
+1. Dealo is consumer-first; the initial shell prioritises discovery, saved deals and profile settings. Merchant tooling is a separate protected area, entered through **For merchants**.
 2. Launch geography is not yet fixed. London and Lisbon text is illustrative only, not location logic.
 3. Search covers the current public result set; geolocation consent, maps, payments and merchant onboarding remain future work.
 4. The API contract will be client-agnostic so native iOS and Android apps can share capabilities with web/PWA.
@@ -96,15 +106,5 @@ The migration creates profiles, merchants, venues, deals and saved deals. Every 
 ## Environment and secrets
 
 `.env.example` documents browser-visible configuration. Never place secrets in `NEXT_PUBLIC_*`. Server-only credentials will be validated separately when backend integrations are added.
-
-## Repository information needed next
-
-This workspace had no repository, so `create-next-app` initialised a local Git repository in `dealo-web`. To publish it, engineering needs:
-
-- Git hosting organisation and target repository name/URL
-- default branch and branch-protection rules
-- CI provider and required checks (`lint`, `typecheck`, unit, build, e2e)
-- deployment target, environments and owning cloud account
-- code owners and security/contact policy
 
 Do not commit `.env.local`, credentials, test reports or build output.

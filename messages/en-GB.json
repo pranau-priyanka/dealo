@@ -7,6 +7,7 @@
     "discover": "Discover",
     "saved": "Saved",
     "settings": "Settings",
+    "merchant": "For merchants",
     "signIn": "Sign in",
     "signOut": "Sign out"
   },
@@ -104,6 +105,82 @@
       "title": "Language",
       "description": "Choose the language Dealo uses for navigation, messages and content we control.",
       "persistence": "Your preference is saved on this device and, when signed in, to your Dealo profile."
+    }
+  },
+  "merchant": {
+    "eyebrow": "Merchant workspace",
+    "merchantLabel": "Merchant account",
+    "title": "Manage {name}",
+    "description": "Create places, prepare offers and control exactly when they are visible on Dealo.",
+    "onboarding": {
+      "title": "Bring your business to Dealo",
+      "description": "Set up your merchant workspace first. You can add your first venue and offer straight afterwards.",
+      "businessName": "Business name",
+      "businessHint": "Use the name customers know you by.",
+      "action": "Create merchant workspace"
+    },
+    "summary": {
+      "venues": "Venues",
+      "liveDeals": "Live deals",
+      "totalDeals": "Total deals"
+    },
+    "venues": {
+      "title": "Your venues",
+      "description": "Add each location where customers can redeem an offer.",
+      "addTitle": "Add a venue",
+      "name": "Venue name",
+      "address": "Address",
+      "city": "City",
+      "country": "Country code",
+      "action": "Add venue"
+    },
+    "deals": {
+      "title": "Create an offer",
+      "description": "New offers start as drafts. Review them, then publish when ready.",
+      "venueFirst": "Add a venue before creating an offer.",
+      "addTitle": "New draft offer",
+      "name": "Offer title",
+      "venue": "Venue",
+      "discount": "Discount (%)",
+      "starts": "Starts",
+      "ends": "Ends",
+      "descriptionLabel": "Description (optional)",
+      "terms": "Terms and conditions (optional)",
+      "createAction": "Create draft"
+    },
+    "dealList": {
+      "title": "Your offers",
+      "empty": "Your draft and live offers will appear here.",
+      "discount": "{value}% off",
+      "ends": "Ends {date}"
+    },
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "paused": "Paused",
+      "expired": "Expired"
+    },
+    "actions": {
+      "published": "Publish",
+      "paused": "Pause",
+      "expired": "Expire"
+    },
+    "feedback": {
+      "merchantCreated": "Your merchant workspace is ready.",
+      "venueCreated": "Your venue has been added.",
+      "dealCreated": "Your draft offer has been created.",
+      "statusUpdated": "Offer status updated.",
+      "invalidMerchant": "Enter a business name between 2 and 120 characters.",
+      "invalidVenue": "Complete the venue details before saving.",
+      "invalidDeal": "Check the offer details and make sure the end time is after the start time.",
+      "merchantExists": "You already have a merchant workspace.",
+      "merchantRequired": "Create a merchant workspace before adding venues or offers.",
+      "venueRequired": "Choose one of your venues for this offer.",
+      "invalidStatus": "That offer status change is not available.",
+      "merchantCreateFailed": "We could not create your merchant workspace. Please try again.",
+      "venueCreateFailed": "We could not add that venue. Please try again.",
+      "dealCreateFailed": "We could not create that offer. Please try again.",
+      "statusUpdateFailed": "We could not update that offer status. Please try again."
     }
   }
 }
