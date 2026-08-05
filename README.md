@@ -58,7 +58,17 @@ Feature work should grow under `src/features/<feature>` when it gains domain sta
 
 ## Authentication boundary
 
-Login and registration routes, translated states, and the `getCurrentUser` server contract are present but deliberately disabled. Milestone 2 should select and integrate an OpenID Connect provider, add session-backed route protection and sync locale preference to the user profile. No mock credentials or insecure local auth are shipped.
+Supabase authentication uses HTTP-only cookies on the server and browser, with an email/password sign-up and sign-in flow. `getCurrentUser` validates the session server-side; saved deals require an authenticated user. Session refresh is performed in `proxy.ts`, while `/auth/callback` exchanges confirmation codes using the PKCE flow.
+
+### Connect Supabase
+
+1. Create the Dealo project in Supabase and copy the project URL and publishable key from its **Connect** dialog.
+2. Add them to `.env.local` as `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
+3. Run [202608050001_initial_schema.sql](supabase/migrations/202608050001_initial_schema.sql) in the Supabase SQL Editor, or link the project and run `supabase db push`.
+4. In **Authentication → URL Configuration**, add your local and production URLs, including `http://localhost:3000/auth/callback` and `https://<production-domain>/auth/callback`.
+5. Keep email confirmation enabled in production. No service-role key is used or exposed by this app.
+
+The migration creates profiles, merchants, venues, deals and saved deals. Every public table has Row Level Security enabled. Published, current deals are public; profiles and saved deals are private to the authenticated owner; merchant content can be managed only by that merchant's owner.
 
 ## Product and engineering assumptions
 

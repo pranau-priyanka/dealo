@@ -7,7 +7,8 @@
     "discover": "Descobrir",
     "saved": "Guardados",
     "settings": "Definições",
-    "signIn": "Iniciar sessão"
+    "signIn": "Iniciar sessão",
+    "signOut": "Terminar sessão"
   },
   "home": {
     "eyebrow": "Boas descobertas, aqui perto",
@@ -42,28 +43,47 @@
   },
   "auth": {
     "email": "Endereço de e-mail",
-    "placeholder": "A interface de autenticação está preparada. A integração do fornecedor será feita no Marco 2, após a decisão de identidade.",
+    "password": "Palavra-passe",
+    "setupRequired": "A autenticação estará disponível assim que este ambiente estiver ligado ao respetivo projeto Supabase.",
+    "feedback": {
+      "invalid-credentials": "Introduza um endereço de e-mail válido e uma palavra-passe com pelo menos 8 carateres.",
+      "not-configured": "A autenticação ainda não está configurada para este ambiente.",
+      "sign-in-failed": "Não foi possível iniciar sessão. Confirme os seus dados e tente novamente.",
+      "sign-up-failed": "Não foi possível criar a sua conta. Tente novamente.",
+      "check-email": "Consulte o seu e-mail para confirmar a conta.",
+      "sign-in-required": "Inicie sessão para consultar as suas ofertas guardadas."
+    },
     "login": {
       "title": "Bem-vindo de volta",
       "description": "Inicie sessão para ver e guardar ofertas perto de si.",
-      "action": "Continuar"
+      "action": "Iniciar sessão",
+      "alternatePrompt": "Ainda não conhece a Dealo?",
+      "alternateAction": "Criar conta"
     },
     "signup": {
       "title": "Encontre o seu próximo favorito",
       "description": "Crie uma conta para personalizar as suas ofertas locais.",
-      "action": "Criar conta"
+      "action": "Criar conta",
+      "alternatePrompt": "Já tem uma conta?",
+      "alternateAction": "Iniciar sessão"
     }
   },
   "saved": {
     "title": "Ofertas guardadas",
-    "description": "As suas ofertas guardadas aparecerão aqui quando a autenticação e os dados estiverem ligados."
+    "eyebrow": "A sua lista",
+    "description": "Acompanhe as ofertas locais que não quer perder.",
+    "discount": "{value}% de desconto",
+    "empty": {
+      "title": "Ainda não guardou nada",
+      "description": "Quando guardar uma oferta, ela aparecerá aqui."
+    }
   },
   "settings": {
     "language": {
       "breadcrumb": "Perfil · Definições",
       "title": "Idioma",
       "description": "Escolha o idioma que a Dealo utiliza na navegação, nas mensagens e nos conteúdos que controlamos.",
-      "persistence": "A sua preferência fica guardada neste dispositivo e será utilizada nas próximas visitas."
+      "persistence": "A sua preferência fica guardada neste dispositivo e, quando iniciar sessão, no seu perfil Dealo."
     }
   }
 }

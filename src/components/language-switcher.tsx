@@ -9,8 +9,13 @@ export function LanguageSwitcher() {
   const router = useRouter();
   const t = useTranslations("language");
   const [isPending, startTransition] = useTransition();
-  function changeLocale(nextLocale: AppLocale) {
+  async function changeLocale(nextLocale: AppLocale) {
     document.cookie = `DEALO_LOCALE=${nextLocale};path=/;max-age=31536000;samesite=lax`;
+    await fetch("/api/profile/locale", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ locale: nextLocale }),
+    });
     startTransition(() => router.replace(pathname, { locale: nextLocale }));
   }
   return (
