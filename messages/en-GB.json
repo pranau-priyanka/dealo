@@ -1,0 +1,63 @@
+{
+  "language": { "label": "Language" },
+  "navigation": {
+    "skip": "Skip to content",
+    "primary": "Primary navigation",
+    "mobile": "Mobile navigation",
+    "discover": "Discover",
+    "saved": "Saved",
+    "settings": "Settings",
+    "signIn": "Sign in"
+  },
+  "home": {
+    "eyebrow": "Good finds, close by",
+    "title": "Local deals worth going out for.",
+    "subtitle": "Discover timely offers from independent places and trusted brands around you — without the endless scrolling.",
+    "primaryAction": "Start discovering",
+    "secondaryAction": "I already have an account",
+    "previewLabel": "Near you today",
+    "previewTitle": "Lunch at The Green Table",
+    "previewMeta": "0.8 miles away · Ends at 3 pm",
+    "categoriesEyebrow": "Explore",
+    "categoriesTitle": "What are you in the mood for?",
+    "location": "London · 2 mile radius",
+    "categories": [
+      {
+        "title": "Coffee & brunch",
+        "description": "A better start to the day"
+      },
+      {
+        "title": "Food & drink",
+        "description": "Tables, takeaways and treats"
+      },
+      { "title": "Things to do", "description": "Plans worth making" },
+      { "title": "Shopping", "description": "Useful finds and little luxuries" }
+    ]
+  },
+  "auth": {
+    "email": "Email address",
+    "placeholder": "Authentication UI boundary is ready. Provider integration follows the identity decision in Milestone 2.",
+    "login": {
+      "title": "Welcome back",
+      "description": "Sign in to see and save deals near you.",
+      "action": "Continue"
+    },
+    "signup": {
+      "title": "Find your next favourite",
+      "description": "Create an account to personalise your local deals.",
+      "action": "Create account"
+    }
+  },
+  "saved": {
+    "title": "Saved deals",
+    "description": "Your saved deals will appear here once authentication and deal data are connected."
+  },
+  "settings": {
+    "language": {
+      "breadcrumb": "Profile · Settings",
+      "title": "Language",
+      "description": "Choose the language Dealo uses for navigation, messages and content we control.",
+      "persistence": "Your preference is saved on this device and used on future visits."
+    }
+  }
+}
