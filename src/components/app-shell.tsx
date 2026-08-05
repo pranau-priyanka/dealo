@@ -40,6 +40,13 @@ export async function AppShell({ children }: { children: ReactNode }) {
             </Link>
             <Link
               className="hover:bg-surface-muted flex min-h-11 items-center gap-3 rounded-[10px] px-3 text-sm font-semibold"
+              href="/submit"
+            >
+              <span aria-hidden>＋</span>
+              {t("submit")}
+            </Link>
+            <Link
+              className="hover:bg-surface-muted flex min-h-11 items-center gap-3 rounded-[10px] px-3 text-sm font-semibold"
               href="/saved"
             >
               <span aria-hidden>♡</span>
@@ -87,6 +94,12 @@ export async function AppShell({ children }: { children: ReactNode }) {
                   />
                 </form>
               </div>
+              <Link
+                className="bg-brand hover:bg-brand-strong hidden min-h-10 items-center rounded-[var(--radius-sm)] px-4 text-sm font-bold text-white lg:inline-flex"
+                href="/submit"
+              >
+                {t("submit")}
+              </Link>
               <div className="ml-auto flex shrink-0 items-center gap-2">
                 <LanguageSwitcher />
                 {user ? (

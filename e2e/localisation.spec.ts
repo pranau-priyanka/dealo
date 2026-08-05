@@ -43,11 +43,18 @@ test("uses a vertical navigation rail on laptop layouts", async ({
   await context.close();
 });
 
+test("guests are prompted to sign in before sharing a deal", async ({
+  page,
+}) => {
+  await page.goto("/en-GB/submit");
+  await expect(page).toHaveURL(/\/en-GB\/login\?message=sign-in-required/);
+});
+
 test("guests can browse deals without registering", async ({ page }) => {
   await page.goto("/en-GB/deals");
   await expect(page).toHaveURL(/\/en-GB\/deals$/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Deals near you",
+    "Deals in Portugal",
   );
 });
 

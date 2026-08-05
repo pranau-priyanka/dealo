@@ -1,6 +1,16 @@
 import { isSupabaseConfigured } from "@/lib/env";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
+export type DealCategory =
+  | "technology"
+  | "home"
+  | "food"
+  | "travel"
+  | "fashion"
+  | "beauty"
+  | "sports"
+  | "other";
+
 export type PublicDeal = {
   id: string;
   title: string;
@@ -9,8 +19,23 @@ export type PublicDeal = {
   discountPercent: number | null;
   endsAt: string;
   venueName: string;
-  city: string;
+  city: string | null;
+  source: "merchant" | "community";
+  category: DealCategory | null;
+  dealUrl: string | null;
+  currentPrice: number | null;
+  previousPrice: number | null;
+  currency: string;
+  voteScore: number;
+  commentCount: number;
+  userVote: -1 | 1 | null;
   isSaved: boolean;
+};
+
+export type DealComment = {
+  id: string;
+  body: string;
+  createdAt: string;
 };
 
 type PublicDealRow = {
@@ -20,37 +45,77 @@ type PublicDealRow = {
   terms: string | null;
   discount_percent: number | null;
   ends_at: string;
+  source: "merchant" | "community";
+  category: DealCategory | null;
+  deal_url: string | null;
+  retailer_name: string | null;
+  current_price: number | string | null;
+  previous_price: number | string | null;
+  currency: string;
+  vote_score: number;
+  comment_count: number;
   venues:
     { name: string; city: string } | { name: string; city: string }[] | null;
 };
 
 const publicDealSelect =
-  "id, title, description, terms, discount_percent, ends_at, venues (name, city)";
+  "id, title, description, terms, discount_percent, ends_at, source, category, deal_url, retailer_name, current_price, previous_price, currency, vote_score, comment_count, venues (name, city)";
 
-async function getSavedDealIds(
+function toPrice(value: number | string | null) {
+  if (value === null) return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+async function getUserDealState(
   supabase: Awaited<ReturnType<typeof createServerSupabaseClient>>,
   dealIds: string[],
 ) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user || dealIds.length === 0)
-    return { isSignedIn: Boolean(user), ids: new Set<string>() };
+  if (!user || dealIds.length === 0) {
+    return {
+      isSignedIn: Boolean(user),
+      savedDealIds: new Set<string>(),
+      votes: new Map<string, -1 | 1>(),
+    };
+  }
 
-  const { data } = await supabase
-    .from("saved_deals")
-    .select("deal_id")
-    .in("deal_id", dealIds);
+  const [{ data: savedDeals }, { data: votes }] = await Promise.all([
+    supabase.from("saved_deals").select("deal_id").in("deal_id", dealIds),
+    supabase
+      .from("deal_votes")
+      .select("deal_id, value")
+      .eq("user_id", user.id)
+      .in("deal_id", dealIds),
+  ]);
+
   return {
     isSignedIn: true,
-    ids: new Set((data ?? []).map((savedDeal) => savedDeal.deal_id)),
+    savedDealIds: new Set(
+      (savedDeals ?? []).map((savedDeal) => savedDeal.deal_id),
+    ),
+    votes: new Map(
+      (votes ?? []).flatMap((vote) =>
+        vote.value === -1 || vote.value === 1
+          ? [[vote.deal_id, vote.value] as const]
+          : [],
+      ),
+    ),
   };
 }
 
-function mapPublicDeals(rows: PublicDealRow[], savedDealIds: Set<string>) {
+function mapPublicDeals(
+  rows: PublicDealRow[],
+  savedDealIds: Set<string>,
+  votes: Map<string, -1 | 1>,
+) {
   return rows.flatMap((deal) => {
     const venue = Array.isArray(deal.venues) ? deal.venues[0] : deal.venues;
-    if (!venue) return [];
+    const venueName = venue?.name ?? deal.retailer_name;
+    if (!venueName) return [];
+
     return [
       {
         id: deal.id,
@@ -59,8 +124,17 @@ function mapPublicDeals(rows: PublicDealRow[], savedDealIds: Set<string>) {
         terms: deal.terms,
         discountPercent: deal.discount_percent,
         endsAt: deal.ends_at,
-        venueName: venue.name,
-        city: venue.city,
+        venueName,
+        city: venue?.city ?? null,
+        source: deal.source,
+        category: deal.category,
+        dealUrl: deal.deal_url,
+        currentPrice: toPrice(deal.current_price),
+        previousPrice: toPrice(deal.previous_price),
+        currency: deal.currency,
+        voteScore: deal.vote_score,
+        commentCount: deal.comment_count,
+        userVote: votes.get(deal.id) ?? null,
         isSaved: savedDealIds.has(deal.id),
       },
     ];
@@ -76,18 +150,19 @@ export async function getPublicDeals(): Promise<{
   const { data, error } = await supabase
     .from("deals")
     .select(publicDealSelect)
-    .order("ends_at", { ascending: true })
+    .order("vote_score", { ascending: false })
+    .order("created_at", { ascending: false })
     .limit(24);
   if (error || !data) return { deals: [], isSignedIn: false };
 
   const rows = data as PublicDealRow[];
-  const savedDeals = await getSavedDealIds(
+  const userState = await getUserDealState(
     supabase,
     rows.map((deal) => deal.id),
   );
   return {
-    deals: mapPublicDeals(rows, savedDeals.ids),
-    isSignedIn: savedDeals.isSignedIn,
+    deals: mapPublicDeals(rows, userState.savedDealIds, userState.votes),
+    isSignedIn: userState.isSignedIn,
   };
 }
 
@@ -104,9 +179,33 @@ export async function getPublicDeal(id: string): Promise<{
     .maybeSingle();
   if (error || !data) return { deal: null, isSignedIn: false };
 
-  const savedDeals = await getSavedDealIds(supabase, [data.id]);
+  const userState = await getUserDealState(supabase, [data.id]);
   return {
-    deal: mapPublicDeals([data as PublicDealRow], savedDeals.ids)[0] ?? null,
-    isSignedIn: savedDeals.isSignedIn,
+    deal:
+      mapPublicDeals(
+        [data as PublicDealRow],
+        userState.savedDealIds,
+        userState.votes,
+      )[0] ?? null,
+    isSignedIn: userState.isSignedIn,
   };
+}
+
+export async function getPublicDealComments(
+  dealId: string,
+): Promise<DealComment[]> {
+  if (!isSupabaseConfigured()) return [];
+  const supabase = await createServerSupabaseClient();
+  const { data, error } = await supabase
+    .from("deal_comments")
+    .select("id, body, created_at")
+    .eq("deal_id", dealId)
+    .order("created_at", { ascending: true });
+  if (error || !data) return [];
+
+  return data.map((comment) => ({
+    id: comment.id,
+    body: comment.body,
+    createdAt: comment.created_at,
+  }));
 }

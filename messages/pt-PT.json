@@ -9,6 +9,7 @@
     "saved": "Guardados",
     "settings": "Definições",
     "merchant": "Para comerciantes",
+    "submit": "Partilhar oferta",
     "signIn": "Iniciar sessão",
     "signOut": "Terminar sessão",
     "signedInUser": "Utilizador com sessão iniciada",
@@ -79,14 +80,14 @@
     },
     "login": {
       "title": "Bem-vindo de volta",
-      "description": "Inicie sessão para ver e guardar ofertas perto de si.",
+      "description": "Inicie sessão para ver e guardar ofertas em Portugal.",
       "action": "Iniciar sessão",
       "alternatePrompt": "Ainda não conhece a Dealo?",
       "alternateAction": "Criar conta"
     },
     "signup": {
       "title": "Encontre o seu próximo favorito",
-      "description": "Crie uma conta para personalizar as suas ofertas locais.",
+      "description": "Crie uma conta para personalizar as suas ofertas em Portugal.",
       "action": "Criar conta",
       "alternatePrompt": "Já tem uma conta?",
       "alternateAction": "Iniciar sessão"
@@ -95,7 +96,7 @@
   "saved": {
     "title": "Ofertas guardadas",
     "eyebrow": "A sua lista",
-    "description": "Acompanhe as ofertas locais que não quer perder.",
+    "description": "Acompanhe as ofertas que não quer perder.",
     "discount": "{value}% de desconto",
     "empty": {
       "title": "Ainda não guardou nada",
@@ -104,8 +105,8 @@
   },
   "deals": {
     "eyebrow": "Navegue livremente",
-    "title": "Ofertas perto de si",
-    "description": "Qualquer pessoa pode explorar as ofertas atuais. Crie uma conta apenas quando quiser guardar uma oferta.",
+    "title": "Ofertas em Portugal",
+    "description": "Qualquer pessoa pode explorar as ofertas atuais e os sinais da comunidade. Crie uma conta quando quiser guardar, votar, comentar ou partilhar uma oferta.",
     "discount": "{value}% de desconto",
     "searchLabel": "Pesquisar ofertas",
     "searchPlaceholder": "Pesquisar por oferta, estabelecimento ou cidade",
@@ -116,7 +117,7 @@
     "savePrompt": "Crie uma conta para guardar esta oferta",
     "empty": {
       "title": "Ainda não existem ofertas ativas",
-      "description": "Volte em breve — adicionamos novas ofertas locais regularmente.",
+      "description": "Volte em breve — adicionamos novas ofertas regularmente.",
       "searchTitle": "Não existem ofertas correspondentes",
       "searchDescription": "Experimente outra pesquisa ou consulte todas as ofertas atuais."
     }
@@ -127,6 +128,47 @@
     "ends": "A oferta termina",
     "about": "Sobre esta oferta",
     "terms": "Termos e condições"
+  },
+  "community": {
+    "submissionEyebrow": "Oferta da comunidade",
+    "submissionTitle": "Partilhe uma oferta com Portugal",
+    "submissionDescription": "Ajude a comunidade a encontrar um preço melhor. Analisamos cada submissão antes de a mostrar no feed público.",
+    "submissionTitleLabel": "Título da oferta",
+    "retailerLabel": "Retalhista ou loja",
+    "categoryLabel": "Categoria",
+    "dealUrlLabel": "Ligação para a oferta",
+    "currentPriceLabel": "Preço atual (€)",
+    "previousPriceLabel": "Preço anterior (€) (opcional)",
+    "submissionDescriptionLabel": "Porque é que esta é uma boa oferta? (opcional)",
+    "submissionModerationNote": "A sua submissão fica visível apenas para si até ser analisada pela equipa Dealo.",
+    "submissionAction": "Submeter para análise",
+    "submissionSubmitted": "Obrigado — a sua oferta foi submetida para análise.",
+    "submissionInvalid": "Confirme os dados da oferta, incluindo a ligação HTTPS e os preços, e tente novamente.",
+    "submissionFailed": "Não foi possível submeter essa oferta. Tente novamente.",
+    "communityDeal": "Oferta da comunidade",
+    "merchantDeal": "Oferta de comerciante",
+    "visitDeal": "Ver oferta",
+    "upvote": "Votar positivamente nesta oferta",
+    "downvote": "Votar negativamente nesta oferta",
+    "score": "{value} votos da comunidade",
+    "signInToVote": "Inicie sessão para votar",
+    "comments": "Comentários ({count})",
+    "signInToComment": "Inicie sessão para comentar",
+    "commentLabel": "Adicionar comentário",
+    "commentPlaceholder": "Partilhe detalhes úteis, disponibilidade ou a sua experiência…",
+    "commentAction": "Publicar comentário",
+    "commentsEmpty": "Ainda não há comentários. Seja a primeira pessoa a partilhar detalhes úteis sobre esta oferta.",
+    "communityMember": "Membro da comunidade",
+    "categories": {
+      "technology": "Tecnologia",
+      "home": "Casa e jardim",
+      "food": "Comida e bebida",
+      "travel": "Viagens e lazer",
+      "fashion": "Moda",
+      "beauty": "Beleza",
+      "sports": "Desporto e lazer",
+      "other": "Outros"
+    }
   },
   "settings": {
     "language": {
