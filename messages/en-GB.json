@@ -77,11 +77,26 @@
     "title": "Deals near you",
     "description": "Anyone can explore current offers. Create an account only when you want to save a deal.",
     "discount": "{value}% off",
+    "searchLabel": "Search deals",
+    "searchPlaceholder": "Search by deal, place or city",
+    "searchAction": "Search",
+    "viewDeal": "View deal",
+    "save": "Save deal",
+    "removeSaved": "Remove from saved",
     "savePrompt": "Sign up to save this deal",
     "empty": {
       "title": "No live deals yet",
-      "description": "Check back soon — new local offers are added regularly."
+      "description": "Check back soon — new local offers are added regularly.",
+      "searchTitle": "No matching deals",
+      "searchDescription": "Try a different search or browse all current offers."
     }
+  },
+  "dealDetail": {
+    "back": "Back to deals",
+    "discount": "{value}% off",
+    "ends": "Offer ends",
+    "about": "About this offer",
+    "terms": "Terms and conditions"
   },
   "settings": {
     "language": {

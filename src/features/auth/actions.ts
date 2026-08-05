@@ -10,14 +10,25 @@ const credentialsSchema = z.object({
   email: z.string().trim().email(),
   password: z.string().min(8).max(72),
   locale: z.enum(["en-GB", "pt-PT"]),
+  next: z.string().optional(),
 });
 
-function loginPath(locale: string, key: "error" | "message", value: string) {
-  return `/${locale}/login?${key}=${encodeURIComponent(value)}`;
+function getSafeNext(value: string | undefined, locale: string) {
+  return value?.startsWith(`/${locale}/`) && !value.startsWith("//")
+    ? value
+    : `/${locale}`;
 }
 
-function signupPath(locale: string, key: "error" | "message", value: string) {
-  return `/${locale}/signup?${key}=${encodeURIComponent(value)}`;
+function authPath(
+  type: "login" | "signup",
+  locale: string,
+  key: "error" | "message",
+  value: string,
+  next?: string,
+) {
+  const query = new URLSearchParams({ [key]: value });
+  if (next) query.set("next", next);
+  return `/${locale}/${type}?${query.toString()}`;
 }
 
 function parseCredentials(formData: FormData) {
@@ -25,22 +36,27 @@ function parseCredentials(formData: FormData) {
     email: formData.get("email"),
     password: formData.get("password"),
     locale: formData.get("locale"),
+    next: formData.get("next") || undefined,
   });
 }
 
 export async function signIn(formData: FormData) {
   const parsed = parseCredentials(formData);
   if (!parsed.success)
-    redirect(loginPath("en-GB", "error", "invalid-credentials"));
+    redirect(authPath("login", "en-GB", "error", "invalid-credentials"));
   if (!isSupabaseConfigured())
-    redirect(loginPath(parsed.data.locale, "error", "not-configured"));
+    redirect(authPath("login", parsed.data.locale, "error", "not-configured"));
 
+  const next = getSafeNext(parsed.data.next, parsed.data.locale);
   const supabase = await createServerSupabaseClient();
   const { error } = await supabase.auth.signInWithPassword({
     email: parsed.data.email,
     password: parsed.data.password,
   });
-  if (error) redirect(loginPath(parsed.data.locale, "error", "sign-in-failed"));
+  if (error)
+    redirect(
+      authPath("login", parsed.data.locale, "error", "sign-in-failed", next),
+    );
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -48,16 +64,17 @@ export async function signIn(formData: FormData) {
     await supabase
       .from("profiles")
       .upsert({ id: user.id, locale: parsed.data.locale });
-  redirect(`/${parsed.data.locale}`);
+  redirect(next);
 }
 
 export async function signUp(formData: FormData) {
   const parsed = parseCredentials(formData);
   if (!parsed.success)
-    redirect(signupPath("en-GB", "error", "invalid-credentials"));
+    redirect(authPath("signup", "en-GB", "error", "invalid-credentials"));
   if (!isSupabaseConfigured())
-    redirect(signupPath(parsed.data.locale, "error", "not-configured"));
+    redirect(authPath("signup", parsed.data.locale, "error", "not-configured"));
 
+  const next = getSafeNext(parsed.data.next, parsed.data.locale);
   const forwardedHost = (await headers()).get("x-forwarded-host");
   const origin = forwardedHost
     ? `https://${forwardedHost}`
@@ -67,13 +84,17 @@ export async function signUp(formData: FormData) {
     email: parsed.data.email,
     password: parsed.data.password,
     options: {
-      emailRedirectTo: `${origin}/auth/callback?next=/${parsed.data.locale}`,
+      emailRedirectTo: `${origin}/auth/callback?next=${encodeURIComponent(next)}`,
       data: { locale: parsed.data.locale },
     },
   });
   if (error)
-    redirect(signupPath(parsed.data.locale, "error", "sign-up-failed"));
-  redirect(signupPath(parsed.data.locale, "message", "check-email"));
+    redirect(
+      authPath("signup", parsed.data.locale, "error", "sign-up-failed", next),
+    );
+  redirect(
+    authPath("signup", parsed.data.locale, "message", "check-email", next),
+  );
 }
 
 export async function signOut(formData: FormData) {

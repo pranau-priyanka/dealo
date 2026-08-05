@@ -10,7 +10,7 @@ export async function AuthForm({
   notice,
 }: {
   mode: AuthMode;
-  notice?: { error?: string; message?: string };
+  notice?: { error?: string; message?: string; next?: string };
 }) {
   const t = await getTranslations("auth");
   const locale = await getLocale();
@@ -27,6 +27,7 @@ export async function AuthForm({
         <p className="text-foreground-muted mt-2">{t(`${mode}.description`)}</p>
         <form action={action} className="mt-8 space-y-4">
           <input name="locale" type="hidden" value={locale} />
+          <input name="next" type="hidden" value={notice?.next ?? ""} />
           <label className="block text-sm font-semibold">
             {t("email")}
             <input
@@ -77,7 +78,13 @@ export async function AuthForm({
             : t("signup.alternatePrompt")}{" "}
           <Link
             className="text-brand font-semibold underline"
-            href={mode === "login" ? "/signup" : "/login"}
+            href={
+              notice?.next
+                ? `${mode === "login" ? "/signup" : "/login"}?next=${encodeURIComponent(notice.next)}`
+                : mode === "login"
+                  ? "/signup"
+                  : "/login"
+            }
           >
             {mode === "login"
               ? t("login.alternateAction")

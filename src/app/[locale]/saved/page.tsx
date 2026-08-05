@@ -1,13 +1,14 @@
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
+import { DealCard } from "@/components/deal-card";
 import { getCurrentUser } from "@/lib/auth";
 import { getSavedDeals } from "@/features/saved/queries";
 
 export default async function SavedPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: "en-GB" | "pt-PT" }>;
 }) {
   const { locale } = await params;
   const user = await getCurrentUser();
@@ -32,21 +33,7 @@ export default async function SavedPage({
         ) : (
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {deals.map((deal) => (
-              <article
-                className="bg-surface rounded-[var(--radius-md)] border p-5"
-                key={deal.id}
-              >
-                <p className="text-brand text-sm font-bold">{deal.venueName}</p>
-                <h2 className="mt-2 text-xl font-bold">{deal.title}</h2>
-                {deal.discountPercent && (
-                  <p className="mt-4 text-2xl font-black">
-                    {t("discount", { value: deal.discountPercent })}
-                  </p>
-                )}
-                <p className="text-foreground-muted mt-2 text-sm">
-                  {deal.description}
-                </p>
-              </article>
+              <DealCard deal={deal} isSignedIn key={deal.id} locale={locale} />
             ))}
           </div>
         )}

@@ -28,3 +28,16 @@ test("guests can browse deals without registering", async ({ page }) => {
     "Deals near you",
   );
 });
+
+test("guests can search public deals without registering", async ({ page }) => {
+  await page.goto("/en-GB/deals");
+  await page
+    .getByRole("search")
+    .getByLabel("Search deals")
+    .fill("__dealo_no_match__");
+  await page.getByRole("button", { name: "Search" }).click();
+  await expect(page).toHaveURL(/q=__dealo_no_match__/);
+  await expect(page.getByRole("heading", { level: 2 })).toContainText(
+    "No matching deals",
+  );
+});
