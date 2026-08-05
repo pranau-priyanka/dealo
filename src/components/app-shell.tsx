@@ -18,8 +18,8 @@ export async function AppShell({ children }: { children: ReactNode }) {
       >
         {t("skip")}
       </a>
-      <div className="mx-auto max-w-[1540px] xl:grid xl:grid-cols-[230px_minmax(0,1fr)] xl:gap-6 xl:px-5 xl:py-6">
-        <aside className="bg-surface hidden min-h-[calc(100vh-3rem)] rounded-[18px] border p-4 shadow-[var(--shadow-card)] xl:flex xl:flex-col">
+      <div className="mx-auto max-w-[1540px] lg:grid lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-6 lg:px-5 lg:py-6">
+        <aside className="bg-surface hidden min-h-[calc(100vh-3rem)] rounded-[18px] border p-4 shadow-[var(--shadow-card)] lg:flex lg:flex-col">
           <Link className="px-2 py-1" href="/" aria-label="Dealo home">
             <DealoMark />
           </Link>
@@ -64,16 +64,16 @@ export async function AppShell({ children }: { children: ReactNode }) {
           </div>
         </aside>
         <div className="min-w-0">
-          <header className="bg-surface/95 sticky top-0 z-40 border-b backdrop-blur xl:static xl:rounded-[18px] xl:border">
-            <div className="flex min-h-[70px] items-center gap-3 px-4 sm:px-6 xl:px-7">
+          <header className="bg-surface/95 sticky top-0 z-40 border-b backdrop-blur lg:static lg:rounded-[18px] lg:border">
+            <div className="flex min-h-[70px] items-center gap-3 px-4 sm:px-6 lg:px-7">
               <Link
-                className="shrink-0 xl:hidden"
+                className="shrink-0 lg:hidden"
                 href="/"
                 aria-label="Dealo home"
               >
                 <DealoMark />
               </Link>
-              <div className="hidden max-w-xl flex-1 xl:block">
+              <div className="hidden max-w-xl flex-1 lg:block">
                 <form action={`/${locale}/deals`} role="search">
                   <label className="sr-only" htmlFor="shell-search">
                     {t("searchLabel")}
@@ -87,29 +87,6 @@ export async function AppShell({ children }: { children: ReactNode }) {
                   />
                 </form>
               </div>
-              <nav
-                aria-label={t("primary")}
-                className="hidden items-center gap-4 lg:flex xl:hidden"
-              >
-                <Link
-                  className="hover:text-brand text-sm font-semibold"
-                  href="/deals"
-                >
-                  {t("discover")}
-                </Link>
-                <Link
-                  className="hover:text-brand text-sm font-semibold"
-                  href="/saved"
-                >
-                  {t("saved")}
-                </Link>
-                <Link
-                  className="hover:text-brand text-sm font-semibold"
-                  href="/merchant"
-                >
-                  {t("merchant")}
-                </Link>
-              </nav>
               <div className="ml-auto flex shrink-0 items-center gap-2">
                 <LanguageSwitcher />
                 {user ? (
@@ -139,7 +116,7 @@ export async function AppShell({ children }: { children: ReactNode }) {
             </div>
           </header>
           <main id="main-content">{children}</main>
-          <footer className="mb-24 rounded-none bg-[#111827] text-slate-200 md:mb-0 xl:mt-6 xl:rounded-[18px]">
+          <footer className="mb-24 rounded-none bg-[#111827] text-slate-200 lg:mt-6 lg:mb-0 lg:rounded-[18px]">
             <div className="flex flex-col justify-between gap-6 px-6 py-8 sm:flex-row sm:items-end">
               <div>
                 <DealoMark inverse />
@@ -164,7 +141,7 @@ export async function AppShell({ children }: { children: ReactNode }) {
       </div>
       <nav
         aria-label={t("mobile")}
-        className="bg-surface/95 fixed inset-x-0 bottom-0 z-40 flex justify-around border-t p-2 backdrop-blur md:hidden"
+        className="bg-surface/95 fixed inset-x-0 bottom-0 z-40 flex justify-around border-t p-2 backdrop-blur lg:hidden"
       >
         <Link
           className="min-h-11 rounded-[var(--radius-sm)] px-3 py-3 text-sm font-semibold"
