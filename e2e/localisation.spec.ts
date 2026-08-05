@@ -21,6 +21,28 @@ test("detects Portuguese and persists an explicit switch", async ({
   await expect(page).toHaveURL(/\/en-GB$/);
 });
 
+test("uses a vertical navigation rail on laptop layouts", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    viewport: { width: 1024, height: 768 },
+  });
+  const page = await context.newPage();
+  await page.goto("/en-GB");
+
+  const primaryNavigation = page.getByRole("navigation", {
+    name: "Primary navigation",
+  });
+  const navigationRail = primaryNavigation.locator("..");
+
+  await expect(navigationRail).toHaveCSS("display", "flex");
+  await expect(navigationRail).toHaveCSS("flex-direction", "column");
+  await expect(
+    page.getByRole("navigation", { name: "Mobile navigation" }),
+  ).toBeHidden();
+  await context.close();
+});
+
 test("guests can browse deals without registering", async ({ page }) => {
   await page.goto("/en-GB/deals");
   await expect(page).toHaveURL(/\/en-GB\/deals$/);
