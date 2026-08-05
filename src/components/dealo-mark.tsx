@@ -8,7 +8,7 @@ export function DealoMark({ inverse = false, showWordmark = true }: Props) {
     <span className="inline-flex items-center gap-2.5">
       <span
         aria-hidden
-        className="bg-brand grid size-[34px] place-items-center rounded-[10px] text-lg font-black tracking-[-0.08em] text-white"
+        className="grid size-[34px] place-items-center rounded-[10px] bg-[linear-gradient(135deg,#6E56FF_10%,#00C2FF_145%)] text-lg font-black tracking-[-0.08em] text-white"
       >
         D
       </span>

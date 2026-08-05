@@ -20,15 +20,14 @@
     "eyebrow": "A comunidade de ofertas em Portugal",
     "title": "As melhores ofertas em Portugal, encontradas em comunidade.",
     "subtitle": "Descubra ofertas úteis de retalhistas de confiança e negócios locais, com a perspetiva da comunidade para decidir mais depressa.",
-    "primaryAction": "Explorar ofertas",
-    "secondaryAction": "Já tenho uma conta",
-    "previewLabel": "Popular hoje",
-    "previewTitle": "Uma oferta que vale a pena partilhar",
-    "previewMeta": "Detalhes verificados · Interesse da comunidade",
-    "previewNewPlaces": "Novas ofertas em Portugal",
-    "categoriesEyebrow": "Explorar",
-    "categoriesTitle": "Categorias de ofertas populares",
-    "location": "Portugal · Popular agora",
+    "dashboardTitle": "As melhores ofertas em Portugal, num só lugar.",
+    "dashboardDescription": "Explore ofertas de confiança, guarde as que mais lhe interessam e recorra à perspetiva da comunidade para decidir com confiança.",
+    "dashboardAction": "Descobrir ofertas",
+    "liveOffers": "Ofertas ativas",
+    "liveOffersDescription": "Novas oportunidades de retalhistas e negócios locais, prontas para explorar.",
+    "recommendedEyebrow": "Descobrir",
+    "recommendedTitle": "Recomendado para si",
+    "recommendedAction": "Ver tudo",
     "categories": [
       {
         "title": "Tecnologia e eletrónica",
@@ -46,7 +45,25 @@
         "title": "Viagens e lazer",
         "description": "Planos que valem a pena"
       }
-    ]
+    ],
+    "benefits": {
+      "free": {
+        "title": "Grátis",
+        "description": "Descoberta de ofertas simples e rápida."
+      },
+      "safe": {
+        "title": "Fontes de confiança",
+        "description": "Detalhes claros de lojas e membros."
+      },
+      "updated": {
+        "title": "Sempre atualizada",
+        "description": "As ofertas acompanham o mercado."
+      },
+      "community": {
+        "title": "Feita com a comunidade",
+        "description": "É mais fácil encontrar boas ofertas em conjunto."
+      }
+    }
   },
   "auth": {
     "email": "Endereço de e-mail",

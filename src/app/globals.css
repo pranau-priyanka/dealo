@@ -11,6 +11,7 @@
   --brand-strong: #5944df;
   --brand-soft: #f2efff;
   --accent: #22c55e;
+  --info: #00c2ff;
   --danger: #ef4444;
   --radius-sm: 0.75rem;
   --radius-md: 1rem;
@@ -28,6 +29,7 @@
   --color-brand-strong: var(--brand-strong);
   --color-brand-soft: var(--brand-soft);
   --color-accent: var(--accent);
+  --color-info: var(--info);
   --color-danger: var(--danger);
   --font-sans:
     var(--font-poppins), Poppins, Inter, ui-sans-serif, system-ui,

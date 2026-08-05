@@ -5,7 +5,7 @@ test("defaults unsupported browser languages to en-GB", async ({ browser }) => {
   await page.goto("/");
   await expect(page).toHaveURL(/\/en-GB$/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Local deals",
+    "best offers in Portugal",
   );
 });
 test("detects Portuguese and persists an explicit switch", async ({
@@ -31,10 +31,7 @@ test("guests can browse deals without registering", async ({ page }) => {
 
 test("guests can search public deals without registering", async ({ page }) => {
   await page.goto("/en-GB/deals");
-  await page
-    .getByRole("search")
-    .getByLabel("Search deals")
-    .fill("__dealo_no_match__");
+  await page.locator("#deal-search").fill("__dealo_no_match__");
   await page.getByRole("button", { name: "Search" }).click();
   await expect(page).toHaveURL(/q=__dealo_no_match__/);
   await expect(page.getByRole("heading", { level: 2 })).toContainText(

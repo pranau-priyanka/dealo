@@ -6,6 +6,15 @@ Dealo is a Portugal-first, community-powered deal discovery platform. It should 
 
 The interaction model is inspired by leading community deal platforms such as HotUKDeals: the value comes from a useful, current deal feed, community judgement and clear information—not from requiring visitors to register before they can browse.
 
+## Design reference
+
+The supplied **Dealo Deals App Showcase in Portuguese** is the current visual reference for the consumer product. It takes precedence over earlier web-screen interpretations.
+
+- Desktop uses a compact left navigation rail, a top search/utility bar and a dashboard-first home screen.
+- Mobile uses app-style screen layouts and persistent bottom navigation.
+- Core visual tokens are purple `#6E56FF`, green `#22C55E`, blue `#00C2FF`, canvas `#F5F6FA`, ink `#111827` and Poppins typography.
+- The mock-up shows target future capabilities such as personalised recommendations, price history, alerts, community participation and cashback. Only implemented capabilities may be exposed as working UI; the rest remain product milestones.
+
 ## Product principles
 
 1. **Portugal first.** The launch market, language and editorial conventions are Portuguese. Product-controlled Portuguese copy is always `pt-PT`; `pt-BR` is not supported. `en-GB` remains the second supported locale.

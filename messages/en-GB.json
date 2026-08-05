@@ -20,15 +20,14 @@
     "eyebrow": "The deal community for Portugal",
     "title": "The best deals in Portugal, found together.",
     "subtitle": "Discover useful offers from trusted retailers and local businesses, with community insight to help you decide faster.",
-    "primaryAction": "Explore deals",
-    "secondaryAction": "I already have an account",
-    "previewLabel": "Popular today",
-    "previewTitle": "A deal worth sharing",
-    "previewMeta": "Verified details · Community interest",
-    "previewNewPlaces": "Fresh offers in Portugal",
-    "categoriesEyebrow": "Explore",
-    "categoriesTitle": "Popular deal categories",
-    "location": "Portugal · Popular now",
+    "dashboardTitle": "The best offers in Portugal, in one place.",
+    "dashboardDescription": "Explore trusted deals, save the ones you love and use community insight to decide with confidence.",
+    "dashboardAction": "Discover offers",
+    "liveOffers": "Live offers",
+    "liveOffersDescription": "Fresh opportunities from retailers and local businesses, ready to explore.",
+    "recommendedEyebrow": "Discover",
+    "recommendedTitle": "Recommended for you",
+    "recommendedAction": "View all",
     "categories": [
       {
         "title": "Tech & electronics",
@@ -43,7 +42,25 @@
         "description": "Everyday favourites and treats"
       },
       { "title": "Travel & days out", "description": "Plans worth making" }
-    ]
+    ],
+    "benefits": {
+      "free": {
+        "title": "Free to use",
+        "description": "Fast, simple deal discovery."
+      },
+      "safe": {
+        "title": "Trusted sources",
+        "description": "Clear details from stores and members."
+      },
+      "updated": {
+        "title": "Always current",
+        "description": "Offers change as the market does."
+      },
+      "community": {
+        "title": "Built with community",
+        "description": "Better deals are easier to spot together."
+      }
+    }
   },
   "auth": {
     "email": "Email address",
