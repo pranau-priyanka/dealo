@@ -1,9 +1,13 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
+import { signOut } from "@/features/auth/actions";
+import { getCurrentUser } from "@/lib/auth";
 import { LanguageSwitcher } from "./language-switcher";
 export async function AppShell({ children }: { children: ReactNode }) {
   const t = await getTranslations("navigation");
+  const user = await getCurrentUser();
+  const locale = await getLocale();
   return (
     <div className="min-h-screen">
       <a
@@ -25,7 +29,10 @@ export async function AppShell({ children }: { children: ReactNode }) {
             aria-label={t("primary")}
             className="hidden items-center gap-6 md:flex"
           >
-            <Link className="hover:text-brand text-sm font-semibold" href="/">
+            <Link
+              className="hover:text-brand text-sm font-semibold"
+              href="/deals"
+            >
               {t("discover")}
             </Link>
             <Link
@@ -34,15 +41,30 @@ export async function AppShell({ children }: { children: ReactNode }) {
             >
               {t("saved")}
             </Link>
+            <Link
+              className="hover:text-brand text-sm font-semibold"
+              href="/settings/language"
+            >
+              {t("settings")}
+            </Link>
           </nav>
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
-            <Link
-              className="bg-brand hover:bg-brand-strong hidden min-h-11 items-center rounded-[var(--radius-sm)] px-4 text-sm font-semibold text-white sm:inline-flex"
-              href="/login"
-            >
-              {t("signIn")}
-            </Link>
+            {user ? (
+              <form action={signOut} className="hidden sm:block">
+                <input name="locale" type="hidden" value={locale} />
+                <button className="bg-brand hover:bg-brand-strong min-h-11 rounded-[var(--radius-sm)] px-4 text-sm font-semibold text-white">
+                  {t("signOut")}
+                </button>
+              </form>
+            ) : (
+              <Link
+                className="bg-brand hover:bg-brand-strong hidden min-h-11 items-center rounded-[var(--radius-sm)] px-4 text-sm font-semibold text-white sm:inline-flex"
+                href="/login"
+              >
+                {t("signIn")}
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -53,7 +75,7 @@ export async function AppShell({ children }: { children: ReactNode }) {
       >
         <Link
           className="min-h-11 rounded-lg px-4 py-3 text-sm font-semibold"
-          href="/"
+          href="/deals"
         >
           {t("discover")}
         </Link>

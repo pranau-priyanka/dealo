@@ -1,9 +1,13 @@
-export interface AuthUser {
-  id: string;
-  displayName: string;
-  email: string;
-}
-// Milestone 1 boundary: replace this with the selected identity-provider adapter.
+import type { User } from "@supabase/supabase-js";
+import { isSupabaseConfigured } from "./env";
+import { createServerSupabaseClient } from "./supabase/server";
+
+export type AuthUser = Pick<User, "id" | "email" | "user_metadata">;
+
 export async function getCurrentUser(): Promise<AuthUser | null> {
-  return null;
+  if (!isSupabaseConfigured()) return null;
+  const supabase = await createServerSupabaseClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error) return null;
+  return data.user;
 }

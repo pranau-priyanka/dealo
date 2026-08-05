@@ -7,13 +7,14 @@
     "discover": "Descobrir",
     "saved": "Guardados",
     "settings": "Definições",
-    "signIn": "Iniciar sessão"
+    "signIn": "Iniciar sessão",
+    "signOut": "Terminar sessão"
   },
   "home": {
     "eyebrow": "Boas descobertas, aqui perto",
     "title": "Ofertas locais pelas quais vale a pena sair de casa.",
     "subtitle": "Descubra ofertas por tempo limitado de espaços independentes e marcas de confiança perto de si — sem pesquisas intermináveis.",
-    "primaryAction": "Começar a descobrir",
+    "primaryAction": "Explorar ofertas",
     "secondaryAction": "Já tenho uma conta",
     "previewLabel": "Perto de si, hoje",
     "previewTitle": "Almoço no The Green Table",
@@ -42,28 +43,73 @@
   },
   "auth": {
     "email": "Endereço de e-mail",
-    "placeholder": "A interface de autenticação está preparada. A integração do fornecedor será feita no Marco 2, após a decisão de identidade.",
+    "password": "Palavra-passe",
+    "setupRequired": "A autenticação estará disponível assim que este ambiente estiver ligado ao respetivo projeto Supabase.",
+    "feedback": {
+      "invalid-credentials": "Introduza um endereço de e-mail válido e uma palavra-passe com pelo menos 8 carateres.",
+      "not-configured": "A autenticação ainda não está configurada para este ambiente.",
+      "sign-in-failed": "Não foi possível iniciar sessão. Confirme os seus dados e tente novamente.",
+      "sign-up-failed": "Não foi possível criar a sua conta. Tente novamente.",
+      "check-email": "Consulte o seu e-mail para confirmar a conta.",
+      "sign-in-required": "Inicie sessão para consultar as suas ofertas guardadas."
+    },
     "login": {
       "title": "Bem-vindo de volta",
       "description": "Inicie sessão para ver e guardar ofertas perto de si.",
-      "action": "Continuar"
+      "action": "Iniciar sessão",
+      "alternatePrompt": "Ainda não conhece a Dealo?",
+      "alternateAction": "Criar conta"
     },
     "signup": {
       "title": "Encontre o seu próximo favorito",
       "description": "Crie uma conta para personalizar as suas ofertas locais.",
-      "action": "Criar conta"
+      "action": "Criar conta",
+      "alternatePrompt": "Já tem uma conta?",
+      "alternateAction": "Iniciar sessão"
     }
   },
   "saved": {
     "title": "Ofertas guardadas",
-    "description": "As suas ofertas guardadas aparecerão aqui quando a autenticação e os dados estiverem ligados."
+    "eyebrow": "A sua lista",
+    "description": "Acompanhe as ofertas locais que não quer perder.",
+    "discount": "{value}% de desconto",
+    "empty": {
+      "title": "Ainda não guardou nada",
+      "description": "Quando guardar uma oferta, ela aparecerá aqui."
+    }
+  },
+  "deals": {
+    "eyebrow": "Navegue livremente",
+    "title": "Ofertas perto de si",
+    "description": "Qualquer pessoa pode explorar as ofertas atuais. Crie uma conta apenas quando quiser guardar uma oferta.",
+    "discount": "{value}% de desconto",
+    "searchLabel": "Pesquisar ofertas",
+    "searchPlaceholder": "Pesquisar por oferta, estabelecimento ou cidade",
+    "searchAction": "Pesquisar",
+    "viewDeal": "Ver oferta",
+    "save": "Guardar oferta",
+    "removeSaved": "Remover dos guardados",
+    "savePrompt": "Crie uma conta para guardar esta oferta",
+    "empty": {
+      "title": "Ainda não existem ofertas ativas",
+      "description": "Volte em breve — adicionamos novas ofertas locais regularmente.",
+      "searchTitle": "Não existem ofertas correspondentes",
+      "searchDescription": "Experimente outra pesquisa ou consulte todas as ofertas atuais."
+    }
+  },
+  "dealDetail": {
+    "back": "Voltar às ofertas",
+    "discount": "{value}% de desconto",
+    "ends": "A oferta termina",
+    "about": "Sobre esta oferta",
+    "terms": "Termos e condições"
   },
   "settings": {
     "language": {
       "breadcrumb": "Perfil · Definições",
       "title": "Idioma",
       "description": "Escolha o idioma que a Dealo utiliza na navegação, nas mensagens e nos conteúdos que controlamos.",
-      "persistence": "A sua preferência fica guardada neste dispositivo e será utilizada nas próximas visitas."
+      "persistence": "A sua preferência fica guardada neste dispositivo e, quando iniciar sessão, no seu perfil Dealo."
     }
   }
 }

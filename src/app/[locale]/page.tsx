@@ -21,7 +21,7 @@ export default async function HomePage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 className="bg-brand hover:bg-brand-strong inline-flex min-h-12 items-center justify-center rounded-[var(--radius-sm)] px-6 font-bold text-white"
-                href="/signup"
+                href="/deals"
               >
                 {t("primaryAction")}
               </Link>

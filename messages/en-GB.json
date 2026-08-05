@@ -7,13 +7,14 @@
     "discover": "Discover",
     "saved": "Saved",
     "settings": "Settings",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "signOut": "Sign out"
   },
   "home": {
     "eyebrow": "Good finds, close by",
     "title": "Local deals worth going out for.",
     "subtitle": "Discover timely offers from independent places and trusted brands around you — without the endless scrolling.",
-    "primaryAction": "Start discovering",
+    "primaryAction": "Explore deals",
     "secondaryAction": "I already have an account",
     "previewLabel": "Near you today",
     "previewTitle": "Lunch at The Green Table",
@@ -36,28 +37,73 @@
   },
   "auth": {
     "email": "Email address",
-    "placeholder": "Authentication UI boundary is ready. Provider integration follows the identity decision in Milestone 2.",
+    "password": "Password",
+    "setupRequired": "Authentication will be available once this environment is connected to its Supabase project.",
+    "feedback": {
+      "invalid-credentials": "Enter a valid email address and a password of at least 8 characters.",
+      "not-configured": "Authentication is not configured for this environment yet.",
+      "sign-in-failed": "We could not sign you in. Check your details and try again.",
+      "sign-up-failed": "We could not create your account. Please try again.",
+      "check-email": "Check your email to confirm your account.",
+      "sign-in-required": "Sign in to view your saved deals."
+    },
     "login": {
       "title": "Welcome back",
       "description": "Sign in to see and save deals near you.",
-      "action": "Continue"
+      "action": "Sign in",
+      "alternatePrompt": "New to Dealo?",
+      "alternateAction": "Create an account"
     },
     "signup": {
       "title": "Find your next favourite",
       "description": "Create an account to personalise your local deals.",
-      "action": "Create account"
+      "action": "Create account",
+      "alternatePrompt": "Already have an account?",
+      "alternateAction": "Sign in"
     }
   },
   "saved": {
     "title": "Saved deals",
-    "description": "Your saved deals will appear here once authentication and deal data are connected."
+    "eyebrow": "Your shortlist",
+    "description": "Keep track of local deals you do not want to miss.",
+    "discount": "{value}% off",
+    "empty": {
+      "title": "Nothing saved yet",
+      "description": "When you save a deal, it will appear here."
+    }
+  },
+  "deals": {
+    "eyebrow": "Browse freely",
+    "title": "Deals near you",
+    "description": "Anyone can explore current offers. Create an account only when you want to save a deal.",
+    "discount": "{value}% off",
+    "searchLabel": "Search deals",
+    "searchPlaceholder": "Search by deal, place or city",
+    "searchAction": "Search",
+    "viewDeal": "View deal",
+    "save": "Save deal",
+    "removeSaved": "Remove from saved",
+    "savePrompt": "Sign up to save this deal",
+    "empty": {
+      "title": "No live deals yet",
+      "description": "Check back soon — new local offers are added regularly.",
+      "searchTitle": "No matching deals",
+      "searchDescription": "Try a different search or browse all current offers."
+    }
+  },
+  "dealDetail": {
+    "back": "Back to deals",
+    "discount": "{value}% off",
+    "ends": "Offer ends",
+    "about": "About this offer",
+    "terms": "Terms and conditions"
   },
   "settings": {
     "language": {
       "breadcrumb": "Profile · Settings",
       "title": "Language",
       "description": "Choose the language Dealo uses for navigation, messages and content we control.",
-      "persistence": "Your preference is saved on this device and used on future visits."
+      "persistence": "Your preference is saved on this device and, when signed in, to your Dealo profile."
     }
   }
 }

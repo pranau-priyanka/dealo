@@ -1,6 +1,6 @@
 # Dealo web
 
-Milestone 1 production foundation for Dealo: a responsive, local-deal discovery platform for web and PWA, with future iOS and Android clients consuming the same product APIs.
+Production foundation for Dealo: a responsive, local-deal discovery platform for web and PWA, with future iOS and Android clients consuming the same product APIs.
 
 ## Stack decision
 
@@ -38,10 +38,11 @@ npm run test:e2e
 messages/                 en-GB and pt-PT source messages
 e2e/                      cross-browser user journeys
 src/
-  app/[locale]/            route groups and screens
+  app/[locale]/            route groups and screens, including public deal discovery
   components/              shared shell and product components
     ui/                    design-system primitives
   i18n/                    locale routing, request and navigation policy
+  features/                auth, deal discovery and saved-deal domain logic
   lib/                     framework-independent boundaries (auth, env)
   test/                    test setup and shared fixtures
   proxy.ts                 first-visit negotiation and locale cookie handling
@@ -54,17 +55,40 @@ Feature work should grow under `src/features/<feature>` when it gains domain sta
 - Supported locales are exactly `en-GB` and `pt-PT`. Never add `pt-BR` content or Brazilian Portuguese terminology.
 - URLs always carry a locale prefix (`/en-GB/...`, `/pt-PT/...`) for predictable sharing and indexing.
 - The selector is present globally and at Profile → Settings → Language.
-- User-profile synchronisation is deferred until authenticated profiles exist; the device cookie is the Milestone 1 persistence layer.
+- A manual language choice is saved to the device immediately and to an authenticated profile when available.
+
+## Guest access
+
+Deal discovery is public. Visitors can search and view published, live deals without registering or signing in. Authentication is only required for personal actions: saving a deal and syncing profile settings across devices. After signing in or confirming a new account, visitors return to the deal they were viewing.
+
+## Milestone 3: discovery and saving
+
+- Public server-rendered deal listing, keyword search and detail routes
+- Save and remove saved deals using the existing Supabase Row Level Security policy
+- Guest-safe save prompts that preserve the intended return route through authentication
+- Locale-aware expiry dates and fully translated `en-GB` and `pt-PT` discovery copy
+
+The next milestone is merchant operations: onboarding, venue creation, draft/publish controls and a controlled way to populate the public catalogue. There are currently no sample deals inserted into the production database.
 
 ## Authentication boundary
 
-Login and registration routes, translated states, and the `getCurrentUser` server contract are present but deliberately disabled. Milestone 2 should select and integrate an OpenID Connect provider, add session-backed route protection and sync locale preference to the user profile. No mock credentials or insecure local auth are shipped.
+Supabase authentication uses HTTP-only cookies on the server and browser, with an email/password sign-up and sign-in flow. `getCurrentUser` validates the session server-side; saved deals require an authenticated user. Session refresh is performed in `proxy.ts`, while `/auth/callback` exchanges confirmation codes using the PKCE flow.
+
+### Connect Supabase
+
+1. Create the Dealo project in Supabase and copy the project URL and publishable key from its **Connect** dialog.
+2. Add them to `.env.local` as `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
+3. Run the SQL files in [supabase/migrations](supabase/migrations) in order in the Supabase SQL Editor, or link the project and run `supabase db push`.
+4. In **Authentication → URL Configuration**, add your local and production URLs, including `http://localhost:3000/auth/callback` and `https://<production-domain>/auth/callback`.
+5. Keep email confirmation enabled in production. No service-role key is used or exposed by this app.
+
+The migration creates profiles, merchants, venues, deals and saved deals. Every public table has Row Level Security enabled. Published, current deals are public; profiles and saved deals are private to the authenticated owner; merchant content can be managed only by that merchant's owner.
 
 ## Product and engineering assumptions
 
 1. Dealo is consumer-first; the initial shell prioritises discovery, saved deals and profile settings. Merchant tooling will be a separate protected area.
 2. Launch geography is not yet fixed. London and Lisbon text is illustrative only, not location logic.
-3. Deal inventory, geolocation consent, search, maps, payments and merchant onboarding are outside Milestone 1.
+3. Search covers the current public result set; geolocation consent, maps, payments and merchant onboarding remain future work.
 4. The API contract will be client-agnostic so native iOS and Android apps can share capabilities with web/PWA.
 5. PWA install metadata is included now. Offline caching and push notifications wait for explicit product and privacy requirements.
 6. WCAG 2.2 AA is the target: semantic landmarks, skip navigation, visible focus and 44px minimum interactive controls start that baseline.

@@ -1,4 +1,12 @@
 import createMiddleware from "next-intl/middleware";
+import type { NextRequest } from "next/server";
 import { routing } from "@/i18n/routing";
-export default createMiddleware(routing);
-export const config = { matcher: "/((?!api|_next|_vercel|.*\\..*).*)" };
+import { refreshSupabaseSession } from "@/lib/supabase/middleware";
+
+const handleLocale = createMiddleware(routing);
+
+export default async function proxy(request: NextRequest) {
+  return refreshSupabaseSession(request, handleLocale(request));
+}
+
+export const config = { matcher: "/((?!api|auth|_next|_vercel|.*\\..*).*)" };
