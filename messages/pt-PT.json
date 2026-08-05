@@ -4,41 +4,47 @@
     "skip": "Saltar para o conteúdo",
     "primary": "Navegação principal",
     "mobile": "Navegação móvel",
+    "home": "Início",
     "discover": "Descobrir",
     "saved": "Guardados",
     "settings": "Definições",
     "merchant": "Para comerciantes",
     "signIn": "Iniciar sessão",
-    "signOut": "Terminar sessão"
+    "signOut": "Terminar sessão",
+    "signedInUser": "Utilizador com sessão iniciada",
+    "searchLabel": "Pesquisar ofertas",
+    "searchPlaceholder": "Pesquisar ofertas",
+    "footerDescription": "Descubra mais lugares à sua volta, uma boa oferta de cada vez."
   },
   "home": {
-    "eyebrow": "Boas descobertas, aqui perto",
-    "title": "Ofertas locais pelas quais vale a pena sair de casa.",
-    "subtitle": "Descubra ofertas por tempo limitado de espaços independentes e marcas de confiança perto de si — sem pesquisas intermináveis.",
+    "eyebrow": "A comunidade de ofertas em Portugal",
+    "title": "As melhores ofertas em Portugal, encontradas em comunidade.",
+    "subtitle": "Descubra ofertas úteis de retalhistas de confiança e negócios locais, com a perspetiva da comunidade para decidir mais depressa.",
     "primaryAction": "Explorar ofertas",
     "secondaryAction": "Já tenho uma conta",
-    "previewLabel": "Perto de si, hoje",
-    "previewTitle": "Almoço no The Green Table",
-    "previewMeta": "A 1,3 km · Termina às 15:00",
+    "previewLabel": "Popular hoje",
+    "previewTitle": "Uma oferta que vale a pena partilhar",
+    "previewMeta": "Detalhes verificados · Interesse da comunidade",
+    "previewNewPlaces": "Novas ofertas em Portugal",
     "categoriesEyebrow": "Explorar",
-    "categoriesTitle": "O que lhe apetece?",
-    "location": "Lisboa · raio de 3 km",
+    "categoriesTitle": "Categorias de ofertas populares",
+    "location": "Portugal · Popular agora",
     "categories": [
       {
-        "title": "Café e brunch",
-        "description": "Uma forma melhor de começar o dia"
+        "title": "Tecnologia e eletrónica",
+        "description": "Melhores equipamentos por menos"
+      },
+      {
+        "title": "Casa e jardim",
+        "description": "Mais para os espaços de que gosta"
       },
       {
         "title": "Comida e bebida",
-        "description": "Restaurantes, takeaway e petiscos"
+        "description": "Favoritos do dia a dia e petiscos"
       },
       {
-        "title": "Coisas para fazer",
+        "title": "Viagens e lazer",
         "description": "Planos que valem a pena"
-      },
-      {
-        "title": "Compras",
-        "description": "Descobertas úteis e pequenos luxos"
       }
     ]
   },
@@ -112,6 +118,16 @@
       "description": "Escolha o idioma que a Dealo utiliza na navegação, nas mensagens e nos conteúdos que controlamos.",
       "persistence": "A sua preferência fica guardada neste dispositivo e, quando iniciar sessão, no seu perfil Dealo."
     }
+  },
+  "partnerShell": {
+    "skip": "Saltar para o conteúdo do comerciante",
+    "primary": "Navegação do comerciante",
+    "eyebrow": "Parceiros · Portal de comerciantes",
+    "overview": "Visão geral",
+    "venues": "Espaços",
+    "offers": "Ofertas",
+    "viewSite": "Ver a Dealo",
+    "createOffer": "Criar oferta"
   },
   "merchant": {
     "eyebrow": "Área do comerciante",

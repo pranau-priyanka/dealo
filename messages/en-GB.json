@@ -4,36 +4,45 @@
     "skip": "Skip to content",
     "primary": "Primary navigation",
     "mobile": "Mobile navigation",
+    "home": "Home",
     "discover": "Discover",
     "saved": "Saved",
     "settings": "Settings",
     "merchant": "For merchants",
     "signIn": "Sign in",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "signedInUser": "Signed-in user",
+    "searchLabel": "Search deals",
+    "searchPlaceholder": "Search offers",
+    "footerDescription": "Discover more of the places around you, one good deal at a time."
   },
   "home": {
-    "eyebrow": "Good finds, close by",
-    "title": "Local deals worth going out for.",
-    "subtitle": "Discover timely offers from independent places and trusted brands around you — without the endless scrolling.",
+    "eyebrow": "The deal community for Portugal",
+    "title": "The best deals in Portugal, found together.",
+    "subtitle": "Discover useful offers from trusted retailers and local businesses, with community insight to help you decide faster.",
     "primaryAction": "Explore deals",
     "secondaryAction": "I already have an account",
-    "previewLabel": "Near you today",
-    "previewTitle": "Lunch at The Green Table",
-    "previewMeta": "0.8 miles away · Ends at 3 pm",
+    "previewLabel": "Popular today",
+    "previewTitle": "A deal worth sharing",
+    "previewMeta": "Verified details · Community interest",
+    "previewNewPlaces": "Fresh offers in Portugal",
     "categoriesEyebrow": "Explore",
-    "categoriesTitle": "What are you in the mood for?",
-    "location": "London · 2 mile radius",
+    "categoriesTitle": "Popular deal categories",
+    "location": "Portugal · Popular now",
     "categories": [
       {
-        "title": "Coffee & brunch",
-        "description": "A better start to the day"
+        "title": "Tech & electronics",
+        "description": "Useful upgrades for less"
+      },
+      {
+        "title": "Home & garden",
+        "description": "More for the spaces you love"
       },
       {
         "title": "Food & drink",
-        "description": "Tables, takeaways and treats"
+        "description": "Everyday favourites and treats"
       },
-      { "title": "Things to do", "description": "Plans worth making" },
-      { "title": "Shopping", "description": "Useful finds and little luxuries" }
+      { "title": "Travel & days out", "description": "Plans worth making" }
     ]
   },
   "auth": {
@@ -106,6 +115,16 @@
       "description": "Choose the language Dealo uses for navigation, messages and content we control.",
       "persistence": "Your preference is saved on this device and, when signed in, to your Dealo profile."
     }
+  },
+  "partnerShell": {
+    "skip": "Skip to merchant content",
+    "primary": "Merchant navigation",
+    "eyebrow": "Partners · Merchant portal",
+    "overview": "Overview",
+    "venues": "Venues",
+    "offers": "Offers",
+    "viewSite": "View Dealo",
+    "createOffer": "Create offer"
   },
   "merchant": {
     "eyebrow": "Merchant workspace",

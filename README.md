@@ -1,6 +1,8 @@
 # Dealo web
 
-Production foundation for Dealo: a responsive, local-deal discovery platform for web and PWA, with future iOS and Android clients consuming the same product APIs.
+Production foundation for Dealo: a Portugal-first, community-powered deal discovery platform for web and PWA, with future iOS and Android clients consuming the same product APIs. Merchant offers are one source of deals; the product direction is a useful public deal feed, community judgement and responsibly labelled AI assistance.
+
+Read the enduring [product direction](docs/product-direction.md) before planning a feature. It captures the HotUKDeals-inspired community model, Portugal-first launch scope and the guardrails for AI integration.
 
 ## Stack decision
 
@@ -68,7 +70,7 @@ Deal discovery is public. Visitors can search and view published, live deals wit
 - Guest-safe save prompts that preserve the intended return route through authentication
 - Locale-aware expiry dates and fully translated `en-GB` and `pt-PT` discovery copy
 
-There are currently no sample deals inserted into the production database.
+There are currently no sample deals inserted into the production database. Community submissions, voting, comments, retailer ingestion, price context and AI-assisted discovery are deliberately sequenced after the public feed and its trust model are in place.
 
 ## Milestone 4: merchant workspace
 
@@ -96,12 +98,13 @@ The migrations create profiles, merchants, venues, deals, saved deals and deal-s
 
 ## Product and engineering assumptions
 
-1. Dealo is consumer-first; the initial shell prioritises discovery, saved deals and profile settings. Merchant tooling is a separate protected area, entered through **For merchants**.
-2. Launch geography is not yet fixed. London and Lisbon text is illustrative only, not location logic.
-3. Search covers the current public result set; geolocation consent, maps, payments and merchant onboarding remain future work.
+1. Dealo is consumer-first and Portugal-first; it is being designed as a community deal platform inspired by HotUKDeals. The initial shell prioritises discovery, saved deals and profile settings. Merchant tooling is a separate protected area, entered through **For merchants**.
+2. Launch geography is Portugal. Location text in the initial shell is illustrative until location discovery is explicitly designed and implemented.
+3. Search covers the current public result set; community submissions, voting, comments, retailer feeds, price history, AI integration, geolocation consent, maps and payments are planned future work.
 4. The API contract will be client-agnostic so native iOS and Android apps can share capabilities with web/PWA.
-5. PWA install metadata is included now. Offline caching and push notifications wait for explicit product and privacy requirements.
-6. WCAG 2.2 AA is the target: semantic landmarks, skip navigation, visible focus and 44px minimum interactive controls start that baseline.
+5. AI must assist discovery, quality and moderation transparently; it cannot create unverified deal claims or silently influence community signals.
+6. PWA install metadata is included now. Offline caching and push notifications wait for explicit product and privacy requirements.
+7. WCAG 2.2 AA is the target: semantic landmarks, skip navigation, visible focus and 44px minimum interactive controls start that baseline.
 
 ## Environment and secrets
 

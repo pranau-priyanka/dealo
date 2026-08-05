@@ -23,7 +23,7 @@ export function LanguageSwitcher() {
       <span className="sr-only">{t("label")}</span>
       <select
         aria-label={t("label")}
-        className="bg-surface text-foreground min-h-11 rounded-[var(--radius-sm)] border px-3"
+        className="bg-surface text-foreground min-h-10 rounded-full border px-3 text-xs font-semibold shadow-sm"
         disabled={isPending}
         onChange={(event) => changeLocale(event.target.value as AppLocale)}
         value={locale}

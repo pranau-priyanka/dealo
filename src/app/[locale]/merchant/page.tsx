@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { AppShell } from "@/components/app-shell";
+import { PartnerShell } from "@/components/partner-shell";
 import { Button } from "@/components/ui/button";
 import {
   changeDealStatus,
@@ -146,19 +147,24 @@ export default async function MerchantPage({
   });
 
   return (
-    <AppShell>
-      <section className="mx-auto max-w-7xl px-4 py-12 pb-28 sm:px-6 lg:px-8">
-        <p className="text-brand text-sm font-bold">{t("eyebrow")}</p>
+    <PartnerShell merchantName={workspace.merchant.name}>
+      <section
+        className="mx-auto max-w-[1400px] px-4 py-8 pb-16 sm:px-6 lg:px-8"
+        id="overview"
+      >
+        <p className="text-brand text-xs font-extrabold tracking-[0.16em] uppercase">
+          {t("eyebrow")}
+        </p>
         <div className="mt-2 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-black sm:text-4xl">
+            <h1 className="text-3xl font-black tracking-[-0.05em] sm:text-4xl">
               {t("title", { name: workspace.merchant.name })}
             </h1>
-            <p className="text-foreground-muted mt-3 text-lg">
+            <p className="text-foreground-muted mt-3 max-w-2xl text-base leading-7">
               {t("description")}
             </p>
           </div>
-          <p className="bg-brand-soft text-brand-strong rounded-full px-4 py-2 text-sm font-bold">
+          <p className="bg-brand-soft text-brand rounded-full px-4 py-2 text-sm font-bold">
             {t("merchantLabel")}
           </p>
         </div>
@@ -172,37 +178,44 @@ export default async function MerchantPage({
         )}
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <article className="bg-surface rounded-[var(--radius-md)] border p-5">
+          <article className="bg-surface rounded-[var(--radius-md)] border p-5 shadow-[var(--shadow-card)]">
             <p className="text-foreground-muted text-sm font-semibold">
               {t("summary.venues")}
             </p>
-            <p className="mt-2 text-3xl font-black">
+            <p className="mt-2 text-3xl font-black tracking-[-0.05em]">
               {workspace.venues.length}
             </p>
           </article>
-          <article className="bg-surface rounded-[var(--radius-md)] border p-5">
+          <article className="bg-surface rounded-[var(--radius-md)] border p-5 shadow-[var(--shadow-card)]">
             <p className="text-foreground-muted text-sm font-semibold">
               {t("summary.liveDeals")}
             </p>
-            <p className="mt-2 text-3xl font-black">
+            <p className="mt-2 text-3xl font-black tracking-[-0.05em]">
               {
                 workspace.deals.filter((deal) => deal.status === "published")
                   .length
               }
             </p>
           </article>
-          <article className="bg-surface rounded-[var(--radius-md)] border p-5">
+          <article className="bg-surface rounded-[var(--radius-md)] border p-5 shadow-[var(--shadow-card)]">
             <p className="text-foreground-muted text-sm font-semibold">
               {t("summary.totalDeals")}
             </p>
-            <p className="mt-2 text-3xl font-black">{workspace.deals.length}</p>
+            <p className="mt-2 text-3xl font-black tracking-[-0.05em]">
+              {workspace.deals.length}
+            </p>
           </article>
         </div>
 
         <div className="mt-10 grid gap-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <section className="bg-surface rounded-[var(--radius-lg)] border p-6 shadow-[var(--shadow-card)]">
-            <h2 className="text-xl font-black">{t("venues.title")}</h2>
-            <p className="text-foreground-muted mt-2">
+          <section
+            className="bg-surface rounded-[var(--radius-lg)] border p-6 shadow-[var(--shadow-card)]"
+            id="venues"
+          >
+            <h2 className="text-xl font-black tracking-[-0.04em]">
+              {t("venues.title")}
+            </h2>
+            <p className="text-foreground-muted mt-2 text-sm leading-6">
               {t("venues.description")}
             </p>
             {workspace.venues.length > 0 && (
@@ -284,9 +297,14 @@ export default async function MerchantPage({
             </form>
           </section>
 
-          <section className="bg-surface rounded-[var(--radius-lg)] border p-6 shadow-[var(--shadow-card)]">
-            <h2 className="text-xl font-black">{t("deals.title")}</h2>
-            <p className="text-foreground-muted mt-2">
+          <section
+            className="bg-surface rounded-[var(--radius-lg)] border p-6 shadow-[var(--shadow-card)]"
+            id="create-offer"
+          >
+            <h2 className="text-xl font-black tracking-[-0.04em]">
+              {t("deals.title")}
+            </h2>
+            <p className="text-foreground-muted mt-2 text-sm leading-6">
               {t("deals.description")}
             </p>
             {workspace.venues.length === 0 ? (
@@ -406,8 +424,10 @@ export default async function MerchantPage({
           </section>
         </div>
 
-        <section className="mt-10">
-          <h2 className="text-2xl font-black">{t("dealList.title")}</h2>
+        <section className="mt-10" id="offers">
+          <h2 className="text-2xl font-black tracking-[-0.04em]">
+            {t("dealList.title")}
+          </h2>
           {workspace.deals.length === 0 ? (
             <p className="bg-surface text-foreground-muted mt-5 rounded-[var(--radius-md)] border p-6">
               {t("dealList.empty")}
@@ -473,6 +493,6 @@ export default async function MerchantPage({
           )}
         </section>
       </section>
-    </AppShell>
+    </PartnerShell>
   );
 }
