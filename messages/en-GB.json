@@ -9,6 +9,7 @@
     "saved": "Saved",
     "settings": "Settings",
     "merchant": "For merchants",
+    "submit": "Share a deal",
     "signIn": "Sign in",
     "signOut": "Sign out",
     "signedInUser": "Signed-in user",
@@ -76,14 +77,14 @@
     },
     "login": {
       "title": "Welcome back",
-      "description": "Sign in to see and save deals near you.",
+      "description": "Sign in to see and save deals in Portugal.",
       "action": "Sign in",
       "alternatePrompt": "New to Dealo?",
       "alternateAction": "Create an account"
     },
     "signup": {
       "title": "Find your next favourite",
-      "description": "Create an account to personalise your local deals.",
+      "description": "Create an account to personalise your deals in Portugal.",
       "action": "Create account",
       "alternatePrompt": "Already have an account?",
       "alternateAction": "Sign in"
@@ -92,7 +93,7 @@
   "saved": {
     "title": "Saved deals",
     "eyebrow": "Your shortlist",
-    "description": "Keep track of local deals you do not want to miss.",
+    "description": "Keep track of the deals you do not want to miss.",
     "discount": "{value}% off",
     "empty": {
       "title": "Nothing saved yet",
@@ -101,8 +102,8 @@
   },
   "deals": {
     "eyebrow": "Browse freely",
-    "title": "Deals near you",
-    "description": "Anyone can explore current offers. Create an account only when you want to save a deal.",
+    "title": "Deals in Portugal",
+    "description": "Anyone can explore current offers and community signals. Create an account when you want to save, vote, comment or share a deal.",
     "discount": "{value}% off",
     "searchLabel": "Search deals",
     "searchPlaceholder": "Search by deal, place or city",
@@ -113,7 +114,7 @@
     "savePrompt": "Sign up to save this deal",
     "empty": {
       "title": "No live deals yet",
-      "description": "Check back soon — new local offers are added regularly.",
+      "description": "Check back soon — new offers are added regularly.",
       "searchTitle": "No matching deals",
       "searchDescription": "Try a different search or browse all current offers."
     }
@@ -124,6 +125,47 @@
     "ends": "Offer ends",
     "about": "About this offer",
     "terms": "Terms and conditions"
+  },
+  "community": {
+    "submissionEyebrow": "Community deal",
+    "submissionTitle": "Share a deal with Portugal",
+    "submissionDescription": "Help the community find a better price. We review each submission before it appears in the public feed.",
+    "submissionTitleLabel": "Deal title",
+    "retailerLabel": "Retailer or shop",
+    "categoryLabel": "Category",
+    "dealUrlLabel": "Link to the offer",
+    "currentPriceLabel": "Current price (€)",
+    "previousPriceLabel": "Previous price (€) (optional)",
+    "submissionDescriptionLabel": "Why is this a good deal? (optional)",
+    "submissionModerationNote": "Your submission is visible only to you until the Dealo team has reviewed it.",
+    "submissionAction": "Submit for review",
+    "submissionSubmitted": "Thanks — your deal has been submitted for review.",
+    "submissionInvalid": "Check the deal details, including the HTTPS link and prices, then try again.",
+    "submissionFailed": "We could not submit that deal. Please try again.",
+    "communityDeal": "Community deal",
+    "merchantDeal": "Merchant deal",
+    "visitDeal": "View offer",
+    "upvote": "Vote this deal up",
+    "downvote": "Vote this deal down",
+    "score": "{value} community votes",
+    "signInToVote": "Sign in to vote",
+    "comments": "Comments ({count})",
+    "signInToComment": "Sign in to comment",
+    "commentLabel": "Add a comment",
+    "commentPlaceholder": "Share useful details, availability or your experience…",
+    "commentAction": "Post comment",
+    "commentsEmpty": "No comments yet. Be the first to share useful details about this offer.",
+    "communityMember": "Community member",
+    "categories": {
+      "technology": "Technology",
+      "home": "Home & garden",
+      "food": "Food & drink",
+      "travel": "Travel & days out",
+      "fashion": "Fashion",
+      "beauty": "Beauty",
+      "sports": "Sport & leisure",
+      "other": "Other"
+    }
   },
   "settings": {
     "language": {

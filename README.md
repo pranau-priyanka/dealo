@@ -82,6 +82,15 @@ There are currently no sample deals inserted into the production database. Commu
 
 Apply the new migration before using status controls in a shared production environment. Merchant-created offers work without sample catalogue data; a published offer automatically becomes visible to guests only during its configured live window.
 
+## Milestone 5: community foundation
+
+- Signed-in members can submit a retailer or shop deal at `/{locale}/submit`; every community submission begins in a non-public `pending` moderation state.
+- Live deals support one reversible up/down vote per member and public, trigger-maintained score totals.
+- Live deals support community comments. The public UI deliberately uses a generic member label until public profile and moderation rules are explicitly designed.
+- `202608050004_add_community_deals.sql` adds the source, retailer, category and price fields plus the protected vote/comment tables and their Row Level Security policies.
+
+Apply migration `202608050004_add_community_deals.sql` before deploying this milestone. The public feed reads the new community fields, so deploying the UI without this migration would return no deal results from Supabase.
+
 ## Authentication boundary
 
 Supabase authentication uses HTTP-only cookies on the server and browser, with an email/password sign-up and sign-in flow. `getCurrentUser` validates the session server-side; saved deals require an authenticated user. Session refresh is performed in `proxy.ts`, while `/auth/callback` exchanges confirmation codes using the PKCE flow.
@@ -100,7 +109,7 @@ The migrations create profiles, merchants, venues, deals, saved deals and deal-s
 
 1. Dealo is consumer-first and Portugal-first; it is being designed as a community deal platform inspired by HotUKDeals. The initial shell prioritises discovery, saved deals and profile settings. Merchant tooling is a separate protected area, entered through **For merchants**.
 2. Launch geography is Portugal. Location text in the initial shell is illustrative until location discovery is explicitly designed and implemented.
-3. Search covers the current public result set; community submissions, voting, comments, retailer feeds, price history, AI integration, geolocation consent, maps and payments are planned future work.
+3. Search covers the current public result set. Community submissions, voting and comments are now implemented with moderation-first controls; retailer feeds, price history, AI integration, geolocation consent, maps and payments remain future work.
 4. The API contract will be client-agnostic so native iOS and Android apps can share capabilities with web/PWA.
 5. AI must assist discovery, quality and moderation transparently; it cannot create unverified deal claims or silently influence community signals.
 6. PWA install metadata is included now. Offline caching and push notifications wait for explicit product and privacy requirements.
