@@ -4,42 +4,66 @@
     "skip": "Saltar para o conteúdo",
     "primary": "Navegação principal",
     "mobile": "Navegação móvel",
+    "home": "Início",
     "discover": "Descobrir",
     "saved": "Guardados",
     "settings": "Definições",
+    "merchant": "Para comerciantes",
     "signIn": "Iniciar sessão",
-    "signOut": "Terminar sessão"
+    "signOut": "Terminar sessão",
+    "signedInUser": "Utilizador com sessão iniciada",
+    "searchLabel": "Pesquisar ofertas",
+    "searchPlaceholder": "Pesquisar ofertas",
+    "footerDescription": "Descubra mais lugares à sua volta, uma boa oferta de cada vez."
   },
   "home": {
-    "eyebrow": "Boas descobertas, aqui perto",
-    "title": "Ofertas locais pelas quais vale a pena sair de casa.",
-    "subtitle": "Descubra ofertas por tempo limitado de espaços independentes e marcas de confiança perto de si — sem pesquisas intermináveis.",
-    "primaryAction": "Explorar ofertas",
-    "secondaryAction": "Já tenho uma conta",
-    "previewLabel": "Perto de si, hoje",
-    "previewTitle": "Almoço no The Green Table",
-    "previewMeta": "A 1,3 km · Termina às 15:00",
-    "categoriesEyebrow": "Explorar",
-    "categoriesTitle": "O que lhe apetece?",
-    "location": "Lisboa · raio de 3 km",
+    "eyebrow": "A comunidade de ofertas em Portugal",
+    "title": "As melhores ofertas em Portugal, encontradas em comunidade.",
+    "subtitle": "Descubra ofertas úteis de retalhistas de confiança e negócios locais, com a perspetiva da comunidade para decidir mais depressa.",
+    "dashboardTitle": "As melhores ofertas em Portugal, num só lugar.",
+    "dashboardDescription": "Explore ofertas de confiança, guarde as que mais lhe interessam e recorra à perspetiva da comunidade para decidir com confiança.",
+    "dashboardAction": "Descobrir ofertas",
+    "liveOffers": "Ofertas ativas",
+    "liveOffersDescription": "Novas oportunidades de retalhistas e negócios locais, prontas para explorar.",
+    "recommendedEyebrow": "Descobrir",
+    "recommendedTitle": "Recomendado para si",
+    "recommendedAction": "Ver tudo",
     "categories": [
       {
-        "title": "Café e brunch",
-        "description": "Uma forma melhor de começar o dia"
+        "title": "Tecnologia e eletrónica",
+        "description": "Melhores equipamentos por menos"
+      },
+      {
+        "title": "Casa e jardim",
+        "description": "Mais para os espaços de que gosta"
       },
       {
         "title": "Comida e bebida",
-        "description": "Restaurantes, takeaway e petiscos"
+        "description": "Favoritos do dia a dia e petiscos"
       },
       {
-        "title": "Coisas para fazer",
+        "title": "Viagens e lazer",
         "description": "Planos que valem a pena"
-      },
-      {
-        "title": "Compras",
-        "description": "Descobertas úteis e pequenos luxos"
       }
-    ]
+    ],
+    "benefits": {
+      "free": {
+        "title": "Grátis",
+        "description": "Descoberta de ofertas simples e rápida."
+      },
+      "safe": {
+        "title": "Fontes de confiança",
+        "description": "Detalhes claros de lojas e membros."
+      },
+      "updated": {
+        "title": "Sempre atualizada",
+        "description": "As ofertas acompanham o mercado."
+      },
+      "community": {
+        "title": "Feita com a comunidade",
+        "description": "É mais fácil encontrar boas ofertas em conjunto."
+      }
+    }
   },
   "auth": {
     "email": "Endereço de e-mail",
@@ -110,6 +134,92 @@
       "title": "Idioma",
       "description": "Escolha o idioma que a Dealo utiliza na navegação, nas mensagens e nos conteúdos que controlamos.",
       "persistence": "A sua preferência fica guardada neste dispositivo e, quando iniciar sessão, no seu perfil Dealo."
+    }
+  },
+  "partnerShell": {
+    "skip": "Saltar para o conteúdo do comerciante",
+    "primary": "Navegação do comerciante",
+    "eyebrow": "Parceiros · Portal de comerciantes",
+    "overview": "Visão geral",
+    "venues": "Espaços",
+    "offers": "Ofertas",
+    "viewSite": "Ver a Dealo",
+    "createOffer": "Criar oferta"
+  },
+  "merchant": {
+    "eyebrow": "Área do comerciante",
+    "merchantLabel": "Conta de comerciante",
+    "title": "Gerir {name}",
+    "description": "Crie locais, prepare ofertas e controle exatamente quando ficam visíveis na Dealo.",
+    "onboarding": {
+      "title": "Traga o seu negócio para a Dealo",
+      "description": "Comece por criar a sua área de comerciante. Em seguida, pode adicionar o primeiro espaço e oferta.",
+      "businessName": "Nome do negócio",
+      "businessHint": "Utilize o nome pelo qual os clientes o conhecem.",
+      "action": "Criar área de comerciante"
+    },
+    "summary": {
+      "venues": "Espaços",
+      "liveDeals": "Ofertas ativas",
+      "totalDeals": "Total de ofertas"
+    },
+    "venues": {
+      "title": "Os seus espaços",
+      "description": "Adicione cada local onde os clientes podem utilizar uma oferta.",
+      "addTitle": "Adicionar espaço",
+      "name": "Nome do espaço",
+      "address": "Morada",
+      "city": "Localidade",
+      "country": "Código do país",
+      "action": "Adicionar espaço"
+    },
+    "deals": {
+      "title": "Criar uma oferta",
+      "description": "As novas ofertas começam como rascunhos. Reveja-as e publique quando estiverem prontas.",
+      "venueFirst": "Adicione um espaço antes de criar uma oferta.",
+      "addTitle": "Nova oferta em rascunho",
+      "name": "Título da oferta",
+      "venue": "Espaço",
+      "discount": "Desconto (%)",
+      "starts": "Começa",
+      "ends": "Termina",
+      "descriptionLabel": "Descrição (opcional)",
+      "terms": "Termos e condições (opcional)",
+      "createAction": "Criar rascunho"
+    },
+    "dealList": {
+      "title": "As suas ofertas",
+      "empty": "As suas ofertas em rascunho e ativas aparecerão aqui.",
+      "discount": "{value}% de desconto",
+      "ends": "Termina a {date}"
+    },
+    "status": {
+      "draft": "Rascunho",
+      "published": "Publicada",
+      "paused": "Pausada",
+      "expired": "Expirada"
+    },
+    "actions": {
+      "published": "Publicar",
+      "paused": "Pausar",
+      "expired": "Expirar"
+    },
+    "feedback": {
+      "merchantCreated": "A sua área de comerciante está pronta.",
+      "venueCreated": "O seu espaço foi adicionado.",
+      "dealCreated": "A sua oferta em rascunho foi criada.",
+      "statusUpdated": "O estado da oferta foi atualizado.",
+      "invalidMerchant": "Introduza um nome de negócio entre 2 e 120 carateres.",
+      "invalidVenue": "Preencha os dados do espaço antes de guardar.",
+      "invalidDeal": "Confirme os dados da oferta e que a hora de fim é posterior à hora de início.",
+      "merchantExists": "Já tem uma área de comerciante.",
+      "merchantRequired": "Crie uma área de comerciante antes de adicionar espaços ou ofertas.",
+      "venueRequired": "Escolha um dos seus espaços para esta oferta.",
+      "invalidStatus": "Essa alteração de estado não está disponível.",
+      "merchantCreateFailed": "Não foi possível criar a sua área de comerciante. Tente novamente.",
+      "venueCreateFailed": "Não foi possível adicionar esse espaço. Tente novamente.",
+      "dealCreateFailed": "Não foi possível criar essa oferta. Tente novamente.",
+      "statusUpdateFailed": "Não foi possível atualizar o estado dessa oferta. Tente novamente."
     }
   }
 }
